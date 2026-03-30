@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Academics | BDJM Public School</title>
+    <meta name="description" content="Explore the rigorous and holistic UK Board academic curriculum at BDJM Public School, guiding students toward academic and personal excellence.">
+    <meta name="keywords" content="BDJM Academics, UK Board school Ramnagar, affordable education Nainital, Secondary school Dhikuli, experiential learning">
+    <meta name="author" content="BDJM Public School">
+    
+    <link rel="icon" type="image/png" href="logo1.png">
+    <link rel="apple-touch-icon" href="logo1.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "BDJM Public School",
+      "url": "https://www.bdjmpublicschool.co.in", 
+      "logo": "https://www.bdjmpublicschool.co.in/logo1.png",
+      "description": "Providing quality UK Board education at an affordable price with comfortable transportation and multi-exposure facilities.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dhikuli",
+        "addressLocality": "Ramnagar",
+        "addressRegion": "Uttarakhand",
+        "postalCode": "244715",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91 92585 12032",
+      "email": "b.d.j.m.publicschool149@gmail.com"
+    }
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #0a1d37;
+            --gold: #ffcc00;
+            --cream: #fdfbf7;
+            --white: #ffffff;
+            --pattern: radial-gradient(rgba(10, 29, 55, 0.12) 1.5px, transparent 1.5px);
+        }
+
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--white); color: #333; scroll-behavior: smooth; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* --- GLOBAL PROFESSIONAL SPACING --- */
+        .section-spacing { padding: 90px 0; } 
+        .section-title { margin-bottom: 50px; } 
+
+        /* NAVBAR */
+        .navbar { 
+            background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            padding: 20px 0; transition: all 0.4s ease-in-out;
+        }
+        .navbar.scrolled { padding: 8px 0; background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        .navbar-brand img { height: 65px; transition: 0.4s; }
+        .navbar.scrolled .navbar-brand img { height: 45px; }
+        
+        .nav-link { 
+            position: relative; color: var(--navy) !important; font-weight: 700; text-transform: uppercase; 
+            font-size: 0.85rem; letter-spacing: 1px; margin: 0 12px; padding-bottom: 5px;
+        }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background-color: var(--gold);
+            transition: all 0.3s ease-in-out; transform: translateX(-50%);
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .btn-apply { background: var(--gold); color: var(--navy); font-weight: 800; border-radius: 50px; padding: 12px 30px; border: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4); }
+        .btn-apply:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 204, 0, 0.6); }
+
+        /* --- ACADEMICS PAGE STYLES --- */
+        
+        .academics-hero {
+            height: 45vh; 
+            background: linear-gradient(rgba(10, 29, 55, 0.8), rgba(10, 29, 55, 0.8)), 
+                        url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1920');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+
+        .bg-premium { background: linear-gradient(to bottom, #fdfbfb 0%, #f4f8fb 100%); }
+        .section-pattern { background-image: var(--pattern); background-size: 24px 24px; }
+
+        .wing-card {
+            border: none; border-radius: 20px; overflow: hidden; transition: 0.4s;
+            box-shadow: 0 15px 35px rgba(10,29,55,0.08); height: 100%; background: var(--white);
+            border-bottom: 5px solid var(--gold);
+        }
+        .wing-card:hover { transform: translateY(-10px); box-shadow: 0 25px 45px rgba(10,29,55,0.15); }
+        .wing-img { height: 250px; object-fit: cover; width: 100%; }
+        .wing-body { padding: 30px; text-align: center; }
+
+        /* ==================================================
+           NEW DISTINCT THEME: ASSESSMENT TIMELINE
+           ================================================== */
+        .assessment-theme-section {
+            background: linear-gradient(135deg, #004d40 0%, #00796b 100%); /* Deep Teal & Emerald Theme */
+            position: relative;
+            overflow: hidden;
+        }
+        .assessment-theme-section::before {
+            content: ''; position: absolute; top: -50%; left: -10%; width: 50%; height: 150%;
+            background: rgba(255, 204, 0, 0.05); transform: rotate(30deg);
+        }
+        .assessment-title { color: #ffffff; font-weight: 800; margin-bottom: 10px; }
+        .assessment-subtitle { color: #e0f2f1; font-size: 1.1rem; opacity: 0.9; }
+
+        .timeline-card {
+            background: #ffffff; border-radius: 16px; padding: 25px; height: 100%;
+            position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s ease; border: none; border-left: 6px solid var(--gold);
+            display: flex; flex-direction: column;
+        }
+        .timeline-card:hover {
+            transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-left-color: #004d40; /* Changes to teal on hover */
+        }
+        .timeline-header {
+            display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 20px;
+        }
+        .timeline-icon-wrap {
+            width: 48px; height: 48px; background: #e0f2f1; color: #004d40;
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; transition: 0.4s;
+        }
+        .timeline-card:hover .timeline-icon-wrap { background: #004d40; color: #ffffff; }
+        
+        /* Custom Date Badge */
+        .timeline-date {
+            background: #fff3e0; color: #d84315; font-size: 0.75rem; font-weight: 800;
+            padding: 6px 14px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px;
+            border: 1px solid rgba(216, 67, 21, 0.1);
+        }
+        
+        .timeline-title { font-weight: 800; color: #1f2937; margin-bottom: 8px; font-size: 1.2rem; }
+        .timeline-text { color: #6b7280; font-size: 0.95rem; margin-bottom: 0; line-height: 1.5; }
+        /* ================================================== */
+
+        /* ADVANCED FACILITIES */
+        .modern-facilities { 
+            background: linear-gradient(135deg, var(--navy) 0%, #081224 100%);
+            position: relative; overflow: hidden; 
+        }
+        .modern-facilities::before {
+            content: ''; position: absolute; top: -100px; left: -100px; width: 300px; height: 300px;
+            background: var(--gold); border-radius: 50%; opacity: 0.15; filter: blur(50px);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            border-radius: 15px; padding: 35px 25px; text-align: left; transition: all 0.4s; height: 100%; position: relative; overflow: hidden;
+        }
+        .glass-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; background: var(--gold); transition: height 0.4s ease;
+        }
+        .glass-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.08); border-color: rgba(255,255,255,0.2); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+        .glass-card:hover::before { height: 100%; }
+        .gradient-icon {
+            font-size: 2.8rem; margin-bottom: 20px;
+            background: -webkit-linear-gradient(45deg, var(--gold), #ffaa00);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* FOOTER (Master Template - Plain) */
+        footer { background: var(--navy); color: #cbd5e1; padding: 80px 0 40px; border-top: 5px solid var(--gold); }
+        .footer-icon { color: var(--gold); width: 25px; text-align: center; margin-right: 10px; }
+        .social-link { 
+            display: inline-flex; align-items: center; justify-content: center; 
+            width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); 
+            color: white; transition: 0.3s; margin-right: 10px; text-decoration: none;
+        }
+        .social-link:hover { background: var(--gold); color: var(--navy); transform: translateY(-3px); }
+        .footer-link { color: #cbd5e1; text-decoration: none; transition: 0.3s; display: inline-block; }
+        .footer-link:hover { color: var(--gold); transform: translateX(5px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="logo1.png" alt="BDJM Public School Logo">
+                <span class="ms-3 d-none d-md-block fw-bold" style="color:var(--navy); font-size:1.3rem;">BDJM PUBLIC SCHOOL</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="academics.html" style="color: var(--gold) !important;">Academics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="school-life.html">School Life</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-4"><a href="admissions.html" class="btn btn-apply">Admissions Open</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="academics-hero">
+        <div class="container" data-aos="fade-up">
+            <h1 class="display-3 fw-bold text-white mb-3">Academic <span class="text-gold">Excellence</span></h1>
+            <p class="fs-4 text-white opacity-75 mb-0 font-serif fst-italic">"Empowering Minds, Shaping Futures."</p>
+        </div>
+    </header>
+
+    <section class="section-spacing bg-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="activityedit.png" class="img-fluid rounded-4 shadow-lg" alt="Classroom Learning">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h5 class="text-gold fw-bold text-uppercase tracking-widest mb-2">Our Pedagogy</h5>
+                    <h2 class="display-5 fw-bold mb-4" style="color:var(--navy)">Learning by Doing</h2>
+                    <p class="fs-5 text-muted mb-4 lh-base">At BDJM, we strictly follow the UK Board curriculum, but we deliver it differently. We believe the school years are the most critical time to build a genuine, lifelong love for learning.</p>
+                    <p class="text-muted lh-lg mb-0">We have moved away from traditional rote memorization. Instead, our classrooms are interactive spaces where concepts are taught through experiments, visual aids, and project-based learning. We ensure that our students truly understand the "why" behind the "what."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing bg-premium section-pattern">
+        <div class="container">
+            <div class="text-center section-title" data-aos="fade-up">
+                <h2 class="display-5 fw-bold mb-2" style="color:var(--navy)">Our Academic Wings</h2>
+                <p class="text-muted fs-5">A structured journey through the foundational and secondary years.</p>
+            </div>
+
+            <div class="row g-4 text-start">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="wing-card">
+                        <img src="smalledit.png" class="wing-img" alt="Pre-Primary Wing">
+                        <div class="wing-body">
+                            <h4 class="fw-bold text-navy mb-2">Pre-Primary Wing</h4>
+                            <p class="text-gold fw-bold small text-uppercase mb-3">Nursery - UKG</p>
+                            <p class="text-muted small mb-0">Our foundational curriculum focuses on building strong cognitive and motor skills. We use play-way methods, storytelling, and interactive activities to ensure learning is joyful for our youngest minds.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="wing-card">
+                        <img src="mid3edit.png" class="wing-img" alt="Primary & Middle Wing">
+                        <div class="wing-body">
+                            <h4 class="fw-bold text-navy mb-2">Primary & Middle</h4>
+                            <p class="text-gold fw-bold small text-uppercase mb-3">Classes I - VIII</p>
+                            <p class="text-muted small mb-0">As students grow, the focus shifts to analytical thinking and conceptual clarity. We introduce advanced topics through hands-on experiments, group discussions, and comprehensive research projects.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="wing-card">
+                        <img src="higheredit.png" class="wing-img" alt="Secondary Wing">
+                        <div class="wing-body">
+                            <h4 class="fw-bold text-navy mb-2">Secondary Wing</h4>
+                            <p class="text-gold fw-bold small text-uppercase mb-3">Classes IX - X</p>
+                            <p class="text-muted small mb-0">Rigorous UK Board preparation begins here. We focus on in-depth syllabus coverage, critical problem-solving, and continuous assessment to ensure students excel in their pivotal Board Examinations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing assessment-theme-section">
+        <div class="container">
+            <div class="text-center section-title" data-aos="fade-down">
+                <h2 class="display-5 assessment-title">Assessment Timeline</h2>
+                <p class="assessment-subtitle">Continuous, stress-free evaluation aligned with the UK Board Academic Calendar (2026-2027).</p>
+            </div>
+
+            <div class="row g-4">
+                
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-icon-wrap"><i class="fas fa-file-alt"></i></div>
+                            <span class="timeline-date">May 14, 2026</span>
+                        </div>
+                        <h5 class="timeline-title">Unit Test – 1</h5>
+                        <p class="timeline-text">Short, low-pressure assessments to gauge early academic grasp and baseline knowledge.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-icon-wrap"><i class="fas fa-edit"></i></div>
+                            <span class="timeline-date">Aug 17, 2026</span>
+                        </div>
+                        <h5 class="timeline-title">Unit Test – 2</h5>
+                        <p class="timeline-text">Tracking foundational progress and conceptual understanding before the mid-terms.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-icon-wrap"><i class="fas fa-book-open"></i></div>
+                            <span class="timeline-date">Sep 16, 2026</span>
+                        </div>
+                        <h5 class="timeline-title">Half Yearly Exam</h5>
+                        <p class="timeline-text">Comprehensive mid-term evaluation covering the entire first half of the syllabus.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-icon-wrap"><i class="fas fa-file-signature"></i></div>
+                            <span class="timeline-date">Nov 19, 2026</span>
+                        </div>
+                        <h5 class="timeline-title">Unit Test – 3</h5>
+                        <p class="timeline-text">Post-midterm assessments designed to identify specific areas needing remedial support.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-icon-wrap"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <span class="timeline-date">Nov 19, 2026</span>
+                        </div>
+                        <h5 class="timeline-title">Pre-Board Exam – 1</h5>
+                        <p class="timeline-text">Initial rigorous preparatory examinations exclusively for Classes 9 and 10.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-icon-wrap"><i class="fas fa-flask"></i></div>
+                            <span class="timeline-date">Jan 16, 2027</span>
+                        </div>
+                        <h5 class="timeline-title">Practical Exams</h5>
+                        <p class="timeline-text">Hands-on lab evaluations and experiential assessments for students from Classes 1 to 10.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+                            <span class="timeline-date">Feb 01, 2027</span>
+                        </div>
+                        <h5 class="timeline-title">Pre-Board Exam – 2</h5>
+                        <p class="timeline-text">The final comprehensive preparation test before the actual UK Board examinations.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-icon-wrap"><i class="fas fa-clipboard-check"></i></div>
+                            <span class="timeline-date">Feb 15, 2027</span>
+                        </div>
+                        <h5 class="timeline-title">Unit Test – 4</h5>
+                        <p class="timeline-text">Final quick assessment to secure internal evaluation scores and boost confidence.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div class="timeline-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
+                            <span class="timeline-date">Mar 08, 2027</span>
+                        </div>
+                        <h5 class="timeline-title">Annual Examination</h5>
+                        <p class="timeline-text">Final summative assessments to test year-long retention and ensure readiness for the next grade.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing modern-facilities" style="padding-bottom: 140px;">
+        <div class="container">
+            <div class="text-center section-title" data-aos="fade-down">
+                <h2 class="display-5 fw-bold text-white mb-2">Beyond the Textbooks</h2>
+                <p class="text-white opacity-75">World-class facilities for our young learners.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card">
+                        <i class="fas fa-tv gradient-icon"></i>
+                        <h4 class="text-white fw-bold mb-3">Smart Classrooms</h4>
+                        <p class="text-white opacity-75 mb-0">Every classroom is equipped with interactive digital boards, making complex concepts visual, engaging, and easy to understand.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card">
+                        <i class="fas fa-flask gradient-icon"></i>
+                        <h4 class="text-white fw-bold mb-3">Junior Science Lab</h4>
+                        <p class="text-white opacity-75 mb-0">A safe, fully-equipped environment where middle and secondary school students can conduct basic experiments and experience science first-hand.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card">
+                        <i class="fas fa-desktop gradient-icon"></i>
+                        <h4 class="text-white fw-bold mb-3">Computer Center</h4>
+                        <p class="text-white opacity-75 mb-0">Modern IT labs designed to teach early coding, digital literacy, and responsible internet usage to our students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="row g-5 justify-content-between">
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="mb-3" style="font-size: 2.2rem; font-weight: 800; color: var(--gold); font-family: 'Playfair Display', serif;">BDJM</div>
+                    <p class="opacity-75 mb-4">Quality education at an affordable price. We are your partners in holistic growth and excellence.</p>
+                    <div class="d-flex">
+                        <a href="https://www.facebook.com/p/BDJM-public-school-100084277163290/" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/bdjmpublic/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@bdjmpublicschoolramnagar5883" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-4 fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled opacity-75">
+                        <li class="mb-3"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="mb-3"><a href="faculty.html" class="footer-link">Our Faculty</a></li>
+                        <li class="mb-3"><a href="admissions.html" class="footer-link">Admission Policy</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link">Fee Structure</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4 fw-bold">Contact Us</h5>
+                    <ul class="list-unstyled opacity-75">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-map-marker-alt footer-icon mt-1"></i>
+                            <span>Dhikuli Ramnagar,<br>Nainital, Uttarakhand 244715</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-phone-alt footer-icon"></i>
+                            <a href="tel:+919258512032" style="color: inherit; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">+91 92585 12032</a>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-envelope footer-icon"></i>
+                            <a href="mailto:b.d.j.m.publicschool149@gmail.com" style="color: inherit; text-decoration: none; font-size: 0.9rem; transition: 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">b.d.j.m.publicschool149@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-5 mb-4 border-secondary opacity-25">
+            <div class="row align-items-center opacity-50">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small">© 2026 BDJM Public School. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNavbar');
+            if (window.scrollY > 100) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>

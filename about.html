@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>About Us | BDJM Public School</title>
+    <meta name="description" content="BDJM Public School provides high-quality, holistic education from Nursery to Class 10 under the UK Board at very affordable fees in Dhikuli Ramnagar. Featuring safe transport and multi-exposure facilities.">
+    <meta name="keywords" content="BDJM Public School, Best affordable school in Ramnagar, Nursery to Class 10 Ramnagar, cheap school transport Dhikuli, UK Board school Nainital, Uttarakhand Board">
+    <meta name="author" content="BDJM Public School">
+    
+    <link rel="icon" type="image/png" href="logo1.png">
+    <link rel="apple-touch-icon" href="logo1.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "BDJM Public School",
+      "url": "https://www.bdjmpublicschool.co.in", 
+      "logo": "https://www.bdjmpublicschool.co.in/logo1.png",
+      "description": "Providing quality UK Board education at a very affordable price with comfortable transportation and multi-exposure facilities from Nursery to Class 10.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dhikuli",
+        "addressLocality": "Ramnagar",
+        "addressRegion": "Uttarakhand",
+        "postalCode": "244715",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91 92585 12032",
+      "email": "b.d.j.m.publicschool149@gmail.com"
+    }
+    </script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #0a1d37;
+            --gold: #ffcc00;
+            --cream: #fdfbf7;
+            --white: #ffffff;
+            --pattern: radial-gradient(rgba(10, 29, 55, 0.12) 1.5px, transparent 1.5px);
+        }
+
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--white); color: #333; scroll-behavior: smooth; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        .section-spacing { padding: 90px 0; } 
+        .section-title { margin-bottom: 50px; } 
+
+        /* NAVBAR */
+        .navbar { 
+            background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            padding: 20px 0; transition: all 0.4s ease-in-out;
+        }
+        .navbar.scrolled { padding: 8px 0; background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        .navbar-brand img { height: 65px; transition: 0.4s; }
+        .navbar.scrolled .navbar-brand img { height: 45px; }
+        
+        .nav-link { 
+            position: relative; color: var(--navy) !important; font-weight: 700; text-transform: uppercase; 
+            font-size: 0.85rem; letter-spacing: 1px; margin: 0 12px; padding-bottom: 5px;
+        }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background-color: var(--gold);
+            transition: all 0.3s ease-in-out; transform: translateX(-50%);
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .btn-apply { background: var(--gold); color: var(--navy); font-weight: 800; border-radius: 50px; padding: 12px 30px; border: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4); }
+        .btn-apply:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 204, 0, 0.6); }
+
+        /* HERO */
+        .about-hero {
+            height: 45vh; 
+            background: linear-gradient(rgba(10, 29, 55, 0.8), rgba(10, 29, 55, 0.8)), 
+                        url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1920');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+
+        /* BACKGROUNDS */
+        .bg-premium { background: linear-gradient(to bottom, #fdfbfb 0%, #f4f8fb 100%); }
+        .bg-principal { background: linear-gradient(135deg, #f4f7f9 0%, #e2e8f0 100%); } 
+        .section-pattern { background-image: var(--pattern); background-size: 24px 24px; }
+
+        /* DYNAMIC HERITAGE IMAGE */
+        .heritage-img { width: 100%; height: 100%; object-fit: cover; min-height: 400px; }
+
+        /* VISION & MISSION CARDS */
+        .vm-card {
+            background: var(--white); border-radius: 20px; padding: 45px; height: 100%;
+            box-shadow: 0 10px 30px rgba(10,29,55,0.05); border: 1px solid rgba(10,29,55,0.05);
+            position: relative; overflow: hidden; z-index: 1; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .vm-card::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.1), transparent);
+            transition: left 0.7s ease; z-index: -1; transform: skewX(-20deg);
+        }
+        .vm-card:hover::before { left: 150%; }
+        .vm-card:hover { transform: translateY(-10px); box-shadow: 0 25px 45px rgba(10,29,55,0.12); border-bottom: 5px solid var(--gold); }
+        .vm-icon-wrapper {
+            width: 85px; height: 85px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; box-shadow: 0 10px 20px rgba(10,29,55,0.15); transition: all 0.5s ease;
+        }
+        .vm-icon { font-size: 2.5rem; color: var(--gold); transition: all 0.5s ease; }
+        .vm-card:hover .vm-icon-wrapper { transform: rotate(360deg) scale(1.1); background: var(--gold); box-shadow: 0 15px 30px rgba(255, 204, 0, 0.4); }
+        .vm-card:hover .vm-icon { color: var(--navy); }
+
+        /* LEADERSHIP SECTION */
+        .leader-card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: 0 15px 30px rgba(10,29,55,0.08); transition: 0.3s; height: 100%; }
+        .leader-img { width: 100%; height: 350px; object-fit: cover; object-position: top; }
+        .leader-info { padding: 30px; }
+
+        /* CORE VALUES */
+        .value-box { text-align: center; padding: 30px 20px; background: var(--white); border-radius: 15px; box-shadow: 0 10px 25px rgba(10,29,55,0.05); transition: 0.3s; height: 100%; }
+        .value-box:hover { transform: translateY(-5px); border-bottom: 3px solid var(--navy); }
+        .value-icon { font-size: 2.5rem; color: var(--navy); margin-bottom: 15px; }
+
+        /* SCHOOL SPECIALTIES SECTION (Dark Premium) */
+        .specialty-section-about {
+            background: linear-gradient(135deg, var(--navy) 0%, #081224 100%);
+            position: relative; overflow: hidden; color: white;
+        }
+        .specialty-section-about::before {
+            content: ''; position: absolute; top: -100px; left: -100px; width: 300px; height: 300px;
+            background: var(--gold); border-radius: 50%; opacity: 0.1; filter: blur(50px);
+        }
+        .specialty-list-item {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            border-radius: 15px; padding: 25px; transition: 0.3s; height: 100%; display: flex; align-items: flex-start;
+        }
+        .specialty-list-item:hover { transform: translateY(-5px); border-color: rgba(255, 204, 0, 0.5); background: rgba(255, 255, 255, 0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .specialty-list-icon { font-size: 1.8rem; color: var(--gold); margin-right: 20px; margin-top: 5px; }
+
+        /* AFFILIATION BANNER */
+        .affiliation-banner { background: var(--navy); color: var(--white); padding: 50px 0; border-radius: 20px; box-shadow: 0 15px 30px rgba(10,29,55,0.2); }
+
+        /* FOOTER */
+        footer { background: var(--navy); color: #cbd5e1; padding: 80px 0 40px; border-top: 5px solid var(--gold); }
+        .footer-icon { color: var(--gold); width: 25px; text-align: center; margin-right: 10px; }
+        .social-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); color: white; transition: 0.3s; margin-right: 10px; text-decoration: none; }
+        .social-link:hover { background: var(--gold); color: var(--navy); transform: translateY(-3px); }
+        .footer-link { color: #cbd5e1; text-decoration: none; transition: 0.3s; display: inline-block; }
+        .footer-link:hover { color: var(--gold); transform: translateX(5px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="logo1.png" alt="BDJM Public School Logo">
+                <span class="ms-3 d-none d-md-block fw-bold" style="color:var(--navy); font-size:1.3rem;">BDJM PUBLIC SCHOOL</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html" style="color: var(--gold) !important;">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="academics.html">Academics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="school-life.html">School Life</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-4"><a href="admissions.html" class="btn btn-apply">Admissions Open</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="about-hero">
+        <div class="container" data-aos="fade-up">
+            <h1 class="display-3 fw-bold text-white mb-3">About <span class="text-gold">BDJM</span></h1>
+            <p class="fs-4 text-white opacity-75 mb-0 font-serif fst-italic">"Rooted in Tradition, Ready for the Future."</p>
+        </div>
+    </header>
+
+    <section class="section-spacing bg-white">
+        <div class="container">
+            <div class="row align-items-stretch g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="about-page-image.png" class="heritage-img rounded-4 shadow-lg border border-warning border-3" alt="School Heritage">
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-left">
+                    <div>
+                        <h5 class="text-gold fw-bold text-uppercase tracking-widest mb-2">Our Heritage</h5>
+                        <h2 class="display-5 fw-bold mb-4" style="color:var(--navy)">A Journey of Excellence</h2>
+                        <p class="fs-5 text-muted mb-4 lh-base">Founded in the year 2000 with a deep commitment to serving the community of Ramnagar, BDJM Public School has grown into a premier educational hub in Nainital.</p>
+                        <p class="text-muted lh-lg mb-0">We believe that premium education should never be out of reach. Over the years, we have continually adapted to modern teaching methodologies while keeping our fee structure incredibly affordable, ensuring every child has access to multi-exposure growth and robust UK Board academics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing bg-premium section-pattern">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vm-card">
+                        <div class="vm-icon-wrapper">
+                            <i class="fas fa-eye vm-icon"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3" style="color:var(--navy)">Our Vision</h3>
+                        <p class="text-muted fs-5 lh-lg mb-0">To create a transformative educational environment that provides high-quality, holistic education at a highly affordable fee structure, ensuring that brilliance is accessible to every student in our community.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="vm-card">
+                        <div class="vm-icon-wrapper">
+                            <i class="fas fa-bullseye vm-icon"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3" style="color:var(--navy)">Our Mission</h3>
+                        <p class="text-muted fs-5 lh-lg mb-0">To provide a rigorous, tech-enabled curriculum alongside holistic extracurricular activities, keeping costs low and comfort high with our expansive, safe, and affordable school transportation network.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing bg-principal">
+        <div class="container">
+            <div class="text-center section-title" data-aos="fade-down">
+                <h2 class="display-5 fw-bold mb-2" style="color:var(--navy)">Our Leadership</h2>
+                <p class="text-muted fs-5">Guided by experience, driven by passion.</p>
+            </div>
+
+            <div class="row g-5 justify-content-center align-items-stretch">
+                <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="leader-card">
+                        <img src="director1.jpeg" class="leader-img" alt="Director Girish Chandra">
+                        <div class="leader-info text-center">
+                            <h4 class="fw-bold text-navy mb-1">Girish Chandra</h4>
+                            <p class="text-gold fw-bold small text-uppercase mb-3">Director</p>
+                            <p class="text-muted fst-italic small">"When we laid the foundation of BDJM in 2000, our goal was clear: to build an institution where the quality of education vastly outpaces the cost of admission. We are proud to offer this accessible platform."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="leader-card">
+                        <img src="principal1.jpeg" class="leader-img" alt="Principal Bhagirathi Satywali">
+                        <div class="leader-info text-center">
+                            <h4 class="fw-bold text-navy mb-1">Bhagirathi Satywali</h4>
+                            <p class="text-gold fw-bold small text-uppercase mb-3">Principal</p>
+                            <p class="text-muted fst-italic small">"We do not just teach subjects; we nurture souls. By keeping our fees affordable and providing comfortable transportation, we ensure parents have complete peace of mind."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing bg-white">
+        <div class="container">
+            <div class="text-center section-title" data-aos="fade-up">
+                <h2 class="display-5 fw-bold mb-2" style="color:var(--navy)">The BDJM Advantage</h2>
+                <p class="text-muted fs-5">The pillars that uphold our standard of accessible education.</p>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="value-box">
+                        <i class="fas fa-brain value-icon"></i>
+                        <h5 class="fw-bold text-navy">Innovative Learning</h5>
+                        <p class="text-muted small mb-0">Moving beyond rote memorization to multi-exposure, practical application.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="value-box">
+                        <i class="fas fa-heart value-icon"></i>
+                        <h5 class="fw-bold text-navy">Character Building</h5>
+                        <p class="text-muted small mb-0">Instilling strong ethics, integrity, and respect for all students.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="value-box">
+                        <i class="fas fa-hand-holding-usd value-icon"></i>
+                        <h5 class="fw-bold text-navy">Affordable Excellence</h5>
+                        <p class="text-muted small mb-0">Expert UK Board instruction and facilities without the heavy financial burden.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="value-box">
+                        <i class="fas fa-bus value-icon"></i>
+                        <h5 class="fw-bold text-navy">Safe & Cheap Transit</h5>
+                        <p class="text-muted small mb-0">The most reliable and cost-effective transportation covering all of Ramnagar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing specialty-section-about">
+        <div class="container position-relative z-index-1">
+            <div class="text-center section-title" data-aos="fade-down">
+                <h5 class="text-gold fw-bold text-uppercase tracking-widest mb-2">Why We Stand Out</h5>
+                <h2 class="display-5 fw-bold text-white mb-2">Our School Specialties</h2>
+                <p class="text-white opacity-75 fs-5">A 360-degree approach to your child's growth and success.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Comprehensive Curriculum</h5>
+                            <p class="mb-0 opacity-75 small">Quality education spanning from Nursery all the way to Class 10.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Scholarship Facility</h5>
+                            <p class="mb-0 opacity-75 small">Special scholarship schemes available to support deserving students.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Affordable Fee Structure</h5>
+                            <p class="mb-0 opacity-75 small">Premium quality education made accessible through a budget-friendly model.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Expert Educators</h5>
+                            <p class="mb-0 opacity-75 small">Holistic development guided by experienced, trained, and dedicated teachers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-desktop"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Modern Teaching Methods</h5>
+                            <p class="mb-0 opacity-75 small">Integration of smart classes, digital education, and activity-based learning.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-palette"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Co-Curricular Activities</h5>
+                            <p class="mb-0 opacity-75 small">Special emphasis on drawing, dance, sports, and vibrant cultural programs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-seedling"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Strong Foundational Focus</h5>
+                            <p class="mb-0 opacity-75 small">Building a rock-solid academic and cognitive foundation in Nursery and Primary.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Secure Environment</h5>
+                            <p class="mb-0 opacity-75 small">A thoroughly safe, disciplined, and overwhelmingly positive campus atmosphere.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-bus"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Reliable Transport</h5>
+                            <p class="mb-0 opacity-75 small">Safe, comfortable, and wide-reaching transportation services for all students.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="specialty-list-item">
+                        <div class="specialty-list-icon"><i class="fas fa-chart-line"></i></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Regular Parent Interaction</h5>
+                            <p class="mb-0 opacity-75 small">Periodic testing and consistent communication to closely track student progress.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing bg-white pt-0 mt-5">
+        <div class="container" data-aos="fade-up">
+            <div class="affiliation-banner text-center position-relative overflow-hidden">
+                <div style="position:absolute; top:-50px; left:-50px; width:150px; height:150px; background:var(--gold); border-radius:50%; opacity:0.1;"></div>
+                
+                <h3 class="fw-bold text-gold mb-3">Recognized for Excellence</h3>
+                <p class="fs-5 text-white opacity-75 mb-4">BDJM Public School is proudly affiliated with the Uttarakhand Board of School Education (UK Board) up to Class 10.</p>
+                
+                <div class="d-flex justify-content-center gap-3 mt-4">
+                    <a href="admissions.html" class="btn btn-apply">Start Admission Process</a>
+                    <a href="#" class="btn btn-outline-light rounded-pill px-4 fw-bold">Download Prospectus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="row g-5 justify-content-between">
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="mb-3" style="font-size: 2.2rem; font-weight: 800; color: var(--gold); font-family: 'Playfair Display', serif;">BDJM</div>
+                    <p class="opacity-75 mb-4">Quality education at an affordable price from Nursery to Class 10. We are your partners in holistic growth.</p>
+                    <div class="d-flex">
+                        <a href="https://www.facebook.com/p/BDJM-public-school-100084277163290/" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/bdjmpublic/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@bdjmpublicschoolramnagar5883" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-4 fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled opacity-75">
+                        <li class="mb-3"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="mb-3"><a href="faculty.html" class="footer-link">Our Faculty</a></li>
+                        <li class="mb-3"><a href="admissions.html" class="footer-link">Admission Policy</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link">Fee Structure</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4 fw-bold">Contact Us</h5>
+                    <ul class="list-unstyled opacity-75">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-map-marker-alt footer-icon mt-1"></i>
+                            <span>Dhikuli Ramnagar,<br>Nainital, Uttarakhand 244715</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-phone-alt footer-icon"></i>
+                            <a href="tel:+919258512032" style="color: inherit; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">+91 92585 12032</a>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-envelope footer-icon"></i>
+                            <a href="mailto:b.d.j.m.publicschool149@gmail.com" style="color: inherit; text-decoration: none; font-size: 0.9rem; transition: 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">b.d.j.m.publicschool149@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-5 mb-4 border-secondary opacity-25">
+            <div class="row align-items-center opacity-50">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small">© 2026 BDJM Public School. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init Animations
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+
+        // Sticky Navbar Fix
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNavbar');
+            if (window.scrollY > 100) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>

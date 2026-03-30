@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Life | BDJM Public School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1d37;
+            --gold: #ffcc00;
+            --cream: #fdfbf7;
+            --white: #ffffff;
+            --pattern: radial-gradient(rgba(10, 29, 55, 0.12) 1.5px, transparent 1.5px);
+        }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--white); color: #333; scroll-behavior: smooth; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .section-spacing { padding: 90px 0; } 
+        .section-title { margin-bottom: 50px; } 
+        .navbar { background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 20px 0; transition: all 0.4s ease-in-out; }
+        .navbar.scrolled { padding: 8px 0; background: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        .navbar-brand img { height: 65px; transition: 0.4s; }
+        .navbar.scrolled .navbar-brand img { height: 45px; }
+        .nav-link { position: relative; color: var(--navy) !important; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; margin: 0 12px; padding-bottom: 5px; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background-color: var(--gold); transition: all 0.3s ease-in-out; transform: translateX(-50%); }
+        .nav-link:hover::after { width: 100%; }
+        .btn-apply { background: var(--gold); color: var(--navy); font-weight: 800; border-radius: 50px; padding: 12px 30px; border: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4); }
+        .btn-apply:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 204, 0, 0.6); }
+        
+        .school-life-hero { height: 45vh; background: linear-gradient(rgba(10, 29, 55, 0.7), rgba(10, 29, 55, 0.7)), url('hero-bg.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .bg-premium { background: linear-gradient(to bottom, #fdfbfb 0%, #f4f8fb 100%); }
+        .section-pattern { background-image: var(--pattern); background-size: 24px 24px; }
+        
+        .activity-card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(10,29,55,0.08); transition: 0.3s; height: 100%; border-bottom: 4px solid var(--navy); }
+        .activity-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(10,29,55,0.15); border-bottom-color: var(--gold); }
+        .activity-img { width: 100%; height: 250px; object-fit: cover; }
+        .activity-content { padding: 30px; text-align: center; }
+        .activity-icon { width: 70px; height: 70px; background: var(--navy); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: -65px auto 20px; position: relative; border: 5px solid var(--white); }
+
+        /* MANUAL GALLERY STYLING */
+        .manual-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-gap: 20px;
+        }
+        .gallery-item {
+            border-radius: 15px; overflow: hidden; position: relative; cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); aspect-ratio: 4 / 3;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .gallery-overlay {
+            position: absolute; inset: 0; background: rgba(10, 29, 55, 0.6);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.4s; color: white; font-size: 1.5rem;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        /* LIGHTBOX OVERLAY */
+        #lightboxOverlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none; align-items: center; justify-content: center;
+            z-index: 9999; padding: 20px;
+        }
+        #lightboxImg { max-width: 90%; max-height: 80vh; border-radius: 10px; box-shadow: 0 0 30px rgba(255,204,0,0.2); }
+        #closeLightbox {
+            position: absolute; top: 30px; right: 40px;
+            color: white; font-size: 3rem; cursor: pointer; transition: 0.3s;
+        }
+        #closeLightbox:hover { color: var(--gold); transform: scale(1.2); }
+
+        /* FOOTER STYLING */
+        footer { background: var(--navy); color: #cbd5e1; padding: 80px 0 40px; border-top: 5px solid var(--gold); }
+        .footer-icon { color: var(--gold); width: 25px; text-align: center; margin-right: 10px; }
+        .social-link { 
+            display: inline-flex; align-items: center; justify-content: center; 
+            width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); 
+            color: white; transition: 0.3s; margin-right: 10px; text-decoration: none;
+        }
+        .social-link:hover { background: var(--gold); color: var(--navy); transform: translateY(-3px); }
+        .footer-link { color: #cbd5e1; text-decoration: none; transition: 0.3s; display: inline-block; }
+        .footer-link:hover { color: var(--gold); transform: translateX(5px); }
+    </style>
+</head>
+<body>
+
+    <div id="lightboxOverlay">
+        <span id="closeLightbox" onclick="closeImage()">&times;</span>
+        <img id="lightboxImg" src="" alt="Full Screen Preview">
+    </div>
+
+    <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="logo1.png" alt="Logo" style="height:65px;">
+                <span class="ms-3 d-none d-md-block fw-bold" style="color:var(--navy); font-size:1.3rem;">BDJM PUBLIC SCHOOL</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="academics.html">Academics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" style="color: var(--gold) !important;">School Life</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-4"><a href="admissions.html" class="btn btn-apply">Admissions Open</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="school-life-hero">
+        <div class="container" data-aos="fade-up">
+            <h1 class="display-3 fw-bold text-white mb-3">Campus <span class="text-gold">Life</span></h1>
+            <p class="fs-4 text-white opacity-75 mb-0 font-serif fst-italic">"Where Learning Meets Joy and Creativity."</p>
+        </div>
+    </header>
+
+    <section class="section-spacing bg-white">
+        <div class="container">
+            <div class="text-center section-title" data-aos="fade-up">
+                <h2 class="display-5 fw-bold mb-2" style="color:var(--navy)">Beyond Academics</h2>
+                <p class="text-muted fs-5">Fostering holistic development through engaging activities.</p>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="activity-card">
+                        <img src="17.jpeg" class="activity-img" alt="Sports">
+                        <div class="activity-content">
+                            <div class="activity-icon"><i class="fas fa-running"></i></div>
+                            <h4 class="fw-bold text-navy mb-3">Sports & Athletics</h4>
+                            <p class="text-muted mb-0">Ensuring physical fitness and teaching teamwork and discipline.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="activity-card">
+                        <img src="11.jpeg" class="activity-img" alt="Arts">
+                        <div class="activity-content">
+                            <div class="activity-icon"><i class="fas fa-palette"></i></div>
+                            <h4 class="fw-bold text-navy mb-3">Arts & Creativity</h4>
+                            <p class="text-muted mb-0">Encouraging imagination through painting and crafts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="activity-card">
+                        <img src="14.jpeg" class="activity-img" alt="Music">
+                        <div class="activity-content">
+                            <div class="activity-icon"><i class="fas fa-music"></i></div>
+                            <h4 class="fw-bold text-navy mb-3">Music & Dance</h4>
+                            <p class="text-muted mb-0">Embracing rhythm through classical and modern expressions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing bg-premium section-pattern">
+        <div class="container">
+            <div class="text-center section-title" data-aos="fade-up">
+                <h2 class="display-5 fw-bold" style="color:var(--navy)">Our Memory Wall</h2>
+                <p class="text-muted fs-5">Glimpses of celebrations and achievements.</p>
+            </div>
+            
+            <div class="manual-gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('18.jpeg')"><img src="18.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('1.jpeg')"><img src="1.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('2.jpeg')"><img src="2.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('3.jpeg')"><img src="3.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('4.jpeg')"><img src="4.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('5.jpeg')"><img src="5.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('6.jpeg')"><img src="6.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('7.jpeg')"><img src="7.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('8.jpeg')"><img src="8.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('9.jpeg')"><img src="9.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('10.jpeg')"><img src="10.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('11.jpeg')"><img src="11.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('12.jpeg')"><img src="12.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('14.jpeg')"><img src="14.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('15.jpeg')"><img src="15.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('16.jpeg')"><img src="16.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('17.jpeg')"><img src="17.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('19.jpeg')"><img src="19.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('21.jpeg')"><img src="21.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="gallery-item" data-aos="zoom-in" onclick="openImage('20.jpeg')"><img src="20.jpeg" alt="BDJM"><div class="gallery-overlay"><i class="fas fa-search-plus"></i></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-5 justify-content-between">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="mb-3" style="font-size: 2.2rem; font-weight: 800; color: var(--gold); font-family: 'Playfair Display', serif;">BDJM</div>
+                    <p class="opacity-75 mb-4">Quality education at an affordable price. We are your partners in growth and excellence.</p>
+                    <div class="d-flex">
+                        <a href="https://www.facebook.com/p/BDJM-public-school-100084277163290/" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/bdjmpublic/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@bdjmpublicschoolramnagar5883" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-4 fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled opacity-75">
+                        <li class="mb-3"><a href="about.html" class="footer-link">About Us</a></li>
+                        <li class="mb-3"><a href="faculty.html" class="footer-link">Our Faculty</a></li>
+                        <li class="mb-3"><a href="admissions.html" class="footer-link">Admission Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4 fw-bold">Contact Us</h5>
+                    <ul class="list-unstyled opacity-75">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-map-marker-alt footer-icon mt-1"></i>
+                            <span>Dhikuli Ramnagar,<br>Nainital, Uttarakhand 244715</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-phone-alt footer-icon"></i>
+                            <a href="tel:+919258512032" style="color: inherit; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">+91 92585 12032</a>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-envelope footer-icon"></i>
+                            <a href="mailto:b.d.j.m.publicschool149@gmail.com" style="color: inherit; text-decoration: none; font-size: 0.9rem; transition: 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">b.d.j.m.publicschool149@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4 border-secondary opacity-25">
+            <div class="row align-items-center opacity-50">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small">© 2026 BDJM Public School. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, offset: 100 });
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNavbar');
+            if (window.scrollY > 100) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // LIGHTBOX FUNCTIONS
+        function openImage(imgSrc) {
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('lightboxOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeImage() {
+            document.getElementById('lightboxOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+
+        document.getElementById('lightboxOverlay').addEventListener('click', function(e) {
+            if (e.target !== document.getElementById('lightboxImg')) {
+                closeImage();
+            }
+        });
+    </script>
+</body>
+</html>
