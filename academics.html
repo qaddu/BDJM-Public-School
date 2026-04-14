@@ -28,7 +28,7 @@
         "postalCode": "244715",
         "addressCountry": "IN"
       },
-      "telephone": "+91 92585 12032",
+      "telephone": "+91 96758 57149",
       "email": "b.d.j.m.publicschool149@gmail.com"
     }
     </script>
@@ -99,12 +99,45 @@
         .wing-body { padding: 30px; text-align: center; }
 
         /* ==================================================
-           NEW DISTINCT THEME: ASSESSMENT TIMELINE
+           NEW: FEE STRUCTURE & DOCUMENTS STYLES
+           ================================================== */
+        .fee-table-wrapper {
+            background: var(--white); border-radius: 20px; padding: 35px;
+            box-shadow: 0 15px 40px rgba(10,29,55,0.08); border-top: 5px solid var(--navy);
+            height: 100%; position: relative; overflow: hidden;
+        }
+        .fee-table-wrapper::before {
+            content: ''; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px;
+            background: var(--gold); border-radius: 50%; opacity: 0.1; filter: blur(30px);
+        }
+        .custom-table { width: 100%; margin-bottom: 0; }
+        .custom-table th { background-color: rgba(10, 29, 55, 0.04); color: var(--navy); font-weight: 800; padding: 18px; border-bottom: 2px solid var(--gold); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        .custom-table td { padding: 18px; vertical-align: middle; color: #444; border-bottom: 1px solid rgba(0,0,0,0.05); font-weight: 600; transition: 0.3s ease; }
+        .custom-table tr:last-child td { border-bottom: none; }
+        .custom-table tr:hover td { background-color: rgba(255, 204, 0, 0.08); color: var(--navy); transform: scale(1.01); }
+        .fee-amount { font-weight: 800; color: var(--navy); font-size: 1.2rem; }
+        
+        .document-card {
+            background: var(--white); border-radius: 20px; padding: 30px; text-align: center;
+            box-shadow: 0 10px 30px rgba(10,29,55,0.05); transition: 0.4s ease; height: 100%;
+            border: 1px solid rgba(10,29,55,0.05);
+        }
+        .document-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(10,29,55,0.12); border-color: var(--gold); }
+        .doc-icon {
+            width: 70px; height: 70px; background: rgba(10, 29, 55, 0.05); color: var(--navy);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; margin: 0 auto 20px; transition: 0.4s;
+        }
+        .document-card:hover .doc-icon { background: var(--navy); color: var(--gold); transform: rotateY(180deg); }
+        .btn-outline-navy { border: 2px solid var(--navy); color: var(--navy); border-radius: 50px; padding: 10px 25px; transition: 0.3s; font-weight: 700; }
+        .btn-outline-navy:hover { background: var(--navy); color: white; }
+
+        /* ==================================================
+           ASSESSMENT TIMELINE THEME
            ================================================== */
         .assessment-theme-section {
-            background: linear-gradient(135deg, #004d40 0%, #00796b 100%); /* Deep Teal & Emerald Theme */
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
+            position: relative; overflow: hidden;
         }
         .assessment-theme-section::before {
             content: ''; position: absolute; top: -50%; left: -10%; width: 50%; height: 150%;
@@ -121,11 +154,9 @@
         }
         .timeline-card:hover {
             transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            border-left-color: #004d40; /* Changes to teal on hover */
+            border-left-color: #004d40;
         }
-        .timeline-header {
-            display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 20px;
-        }
+        .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; width: 100%; margin-bottom: 20px; }
         .timeline-icon-wrap {
             width: 48px; height: 48px; background: #e0f2f1; color: #004d40;
             border-radius: 12px; display: flex; align-items: center; justify-content: center;
@@ -133,7 +164,6 @@
         }
         .timeline-card:hover .timeline-icon-wrap { background: #004d40; color: #ffffff; }
         
-        /* Custom Date Badge */
         .timeline-date {
             background: #fff3e0; color: #d84315; font-size: 0.75rem; font-weight: 800;
             padding: 6px 14px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px;
@@ -142,8 +172,7 @@
         
         .timeline-title { font-weight: 800; color: #1f2937; margin-bottom: 8px; font-size: 1.2rem; }
         .timeline-text { color: #6b7280; font-size: 0.95rem; margin-bottom: 0; line-height: 1.5; }
-        /* ================================================== */
-
+        
         /* ADVANCED FACILITIES */
         .modern-facilities { 
             background: linear-gradient(135deg, var(--navy) 0%, #081224 100%);
@@ -168,7 +197,7 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* FOOTER (Master Template - Plain) */
+        /* FOOTER */
         footer { background: var(--navy); color: #cbd5e1; padding: 80px 0 40px; border-top: 5px solid var(--gold); }
         .footer-icon { color: var(--gold); width: 25px; text-align: center; margin-right: 10px; }
         .social-link { 
@@ -266,6 +295,82 @@
                             <h4 class="fw-bold text-navy mb-2">Secondary Wing</h4>
                             <p class="text-gold fw-bold small text-uppercase mb-3">Classes IX - X</p>
                             <p class="text-muted small mb-0">Rigorous UK Board preparation begins here. We focus on in-depth syllabus coverage, critical problem-solving, and continuous assessment to ensure students excel in their pivotal Board Examinations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fee-structure" class="section-spacing bg-white">
+        <div class="container">
+            <div class="text-center section-title" data-aos="fade-up">
+                <h2 class="display-5 fw-bold mb-2" style="color:var(--navy)">Fee Structure & <span class="text-gold">Documents</span></h2>
+                <p class="text-muted fs-5">Transparent pricing and official approvals for complete peace of mind.</p>
+            </div>
+
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="fee-table-wrapper">
+                        <h4 class="fw-bold text-navy mb-4 d-flex align-items-center">
+                            <i class="fas fa-rupee-sign text-gold me-3 fs-3"></i> Monthly Tuition Fees
+                        </h4>
+                        <div class="table-responsive">
+                            <table class="table custom-table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>Class Group</th>
+                                        <th class="text-end">Monthly Fees (₹)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>KG / LKG / UKG</td>
+                                        <td class="text-end fee-amount">₹1300</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Class 1st to 5th</td>
+                                        <td class="text-end fee-amount">₹1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Class 6th to 8th</td>
+                                        <td class="text-end fee-amount">₹1550</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Class 9th</td>
+                                        <td class="text-end fee-amount">₹1650</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Class 10th</td>
+                                        <td class="text-end fee-amount">₹1850</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-3 p-3 bg-light rounded text-center small text-muted border border-warning border-opacity-25">
+                            <i class="fas fa-bus text-navy me-2"></i> Note: Safe school transportation fee (₹350) is separate.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="document-card">
+                                <div class="doc-icon"><i class="fas fa-file-invoice"></i></div>
+                                <h4 class="fw-bold text-navy mb-2">Detailed Fee Structure</h4>
+                                <p class="text-muted small mb-4">Download the comprehensive fee structure.</p>
+                                <a href="https://drive.google.com/file/d/1M8NCTm5W0yst6-9hx00EaYISsaB2cBtc/view?usp=sharing" class="btn btn-outline-navy w-100" target="_blank">Download PDF <i class="fas fa-download ms-2"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <div id="governance" class="document-card">
+                                <div class="doc-icon"><i class="fas fa-file-signature"></i></div>
+                                <h4 class="fw-bold text-navy mb-2">Governance & Approvals</h4>
+                                <p class="text-muted small mb-4">View official UK Board affiliation certificates and government RTE approvals.</p>
+                                <a href="https://drive.google.com/file/d/135xm5bJqkJGNncHSlCxkh7Kh7_f9Pui0/view?usp=sharing" class="btn btn-outline-navy w-100" target="_blank">Download PDF <i class="fas fa-download ms-2"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
