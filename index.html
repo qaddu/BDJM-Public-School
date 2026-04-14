@@ -31,7 +31,7 @@
         "postalCode": "244715",
         "addressCountry": "IN"
       },
-      "telephone": "+91 92585 12032",
+      "telephone": "+91 96758 57149",
       "email": "b.d.j.m.publicschool149@gmail.com"
     }
     </script>
@@ -165,6 +165,22 @@
         .academic-card:hover { transform: translateY(-10px); box-shadow: 0 25px 45px rgba(10,29,55,0.15); }
         .card-img-top { height: 250px; object-fit: cover; }
         .card-body { padding: 30px !important; }
+
+        /* OFFICIAL DOCUMENTS CARDS (NEW) */
+        .document-card {
+            background: var(--white); border-radius: 15px; padding: 40px 30px; text-align: center;
+            box-shadow: 0 10px 30px rgba(10,29,55,0.05); transition: 0.4s ease; height: 100%;
+            border-top: 4px solid transparent;
+        }
+        .document-card:hover {
+            transform: translateY(-10px); box-shadow: 0 20px 40px rgba(10,29,55,0.12); border-top-color: var(--gold);
+        }
+        .doc-icon {
+            width: 75px; height: 75px; background: rgba(10, 29, 55, 0.04); color: var(--navy);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; margin: 0 auto 25px; transition: 0.4s;
+        }
+        .document-card:hover .doc-icon { background: var(--navy); color: var(--gold); }
 
         /* PROFESSIONAL GALLERY */
         .gallery-item { border-radius: 15px; overflow: hidden; position: relative; aspect-ratio: 4/3; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
@@ -387,7 +403,7 @@
         </div>
     </section>
 
-    <section class="section-spacing bg-white section-pattern" style="padding-bottom: 130px;">
+    <section class="section-spacing bg-white section-pattern" style="padding-bottom: 90px;">
         <div class="container text-center">
             <h2 class="display-5 fw-bold section-title" data-aos="fade-up" style="color:var(--navy)">Academic Excellence</h2>
             <div class="row g-4 text-start">
@@ -419,6 +435,36 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="section-spacing" style="background-color: var(--cream);">
+        <div class="container">
+            <div class="text-center section-title" data-aos="fade-up">
+                <h2 class="display-5 fw-bold mb-2" style="color:var(--navy)">Official <span class="text-gold">Documents</span></h2>
+                <p class="text-muted fs-5">Transparency and trust are at the core of our administration.</p>
+            </div>
+            
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="document-card">
+                        <div class="doc-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h4 class="fw-bold text-navy mb-3">Fee Structure 2026</h4>
+                        <p class="text-muted mb-4">Detailed breakdown of our highly affordable tuition and transportation fees.</p>
+                        <a href="academics.html#fee-structure" class="btn btn-outline-navy w-100">View Document <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="document-card">
+                        <div class="doc-icon"><i class="fas fa-file-signature"></i></div>
+                        <h4 class="fw-bold text-navy mb-3">Governance Approval</h4>
+                        <p class="text-muted mb-4">Official state affiliations, RTE compliance, and board approval documents.</p>
+                        <a href="academics.html#governance" class="btn btn-outline-navy w-100">View Document <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+                </div>
         </div>
     </section>
 
