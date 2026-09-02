@@ -689,75 +689,85 @@
         const API_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
 
         async function checkBirthdays() {
-            const container = document.getElementById('bday-display');
-            
-            try {
-                const response = await fetch(API_URL);
-                const text = await response.text();
-                
-                if (text.includes("<html")) {
-                    container.innerHTML = `<div class="col-12"><p class="text-warning fs-5 fw-bold">⚠️ Error: Cannot read the sheet. Ensure it is "Published to the Web" and the tab name matches.</p></div>`;
-                    return;
-                }
-
-                const json = JSON.parse(text.substr(47).slice(0, -2));
-                const rows = json.table.rows;
-                
-                const today = new Date();
-                const m = today.getMonth() + 1;
-                const d = today.getDate();
-
-                const possibleDates = [
-                    `${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`, 
-                    `${String(m).padStart(2, '0')}/${String(d).padStart(2, '0')}`, 
-                    `${m}/${d}`, 
-                    `${d}-${String(m).padStart(2, '0')}`, 
-                    `${d}/${String(m).padStart(2, '0')}`, 
-                    `${d}/${m}` 
-                ];
-
-                container.innerHTML = ""; 
-                let found = false;
-
-                rows.forEach(row => {
-                    if (!row || !row.c) return; 
-
-                    const name = row.c[0] ? row.c[0].v : "";       
-                    const className = row.c[1] ? row.c[1].v : "";  
-                    
-                    let dob = "";
-                    if (row.c[2]) {                                
-                        dob = row.c[2].f ? String(row.c[2].f) : String(row.c[2].v);
-                        dob = dob.trim(); 
-                    }
-
-                    const isBirthday = possibleDates.some(format => dob.includes(format));
-
-                    if (isBirthday) {
-                        found = true;
-                        container.innerHTML += `
-                            <div class="col-md-6 col-lg-6 mb-4">
-                                <div class="bday-card w-100">
-                                    <span style="font-size: 2.5rem; margin-bottom: 15px; display:block;">🎂</span>
-                                    <h4 class="fw-bold mb-2" style="color:var(--navy)">${name}</h4>
-                                    <p class="text-warning fw-bold fs-5 mb-3">${className}</p>
-                                    <hr class="w-25 mx-auto my-3 border-secondary opacity-25">
-                                    <p class="mb-0 text-navy font-serif fst-italic small">"Happy Birthday from the BDJM Family ❤️"</p>
-                                </div>
-                            </div>
-                        `;
-                    }
-                });
-
-                if (!found) {
-                    container.innerHTML = `<div class="col-12"><p class="text-light fs-5 italic opacity-75">Wishing all our students a productive day of learning!</p></div>`;
-                }
-
-            } catch (error) { 
-                console.error("Fetch Error:", error);
-                container.innerHTML = `<div class="col-12"><p class="text-danger fs-5">Unable to connect to the database right now.</p></div>`;
-            }
+    const container = document.getElementById('bday-display');
+    
+    try {
+        const response = await fetch(API_URL);
+        const text = await response.text();
+        
+        if (text.includes("<html")) {
+            container.innerHTML = `<div class="col-12"><p class="text-warning fs-5 fw-bold">⚠️ Error: Cannot read the sheet. Ensure it is "Published to the Web" and the tab name matches.</p></div>`;
+            return;
         }
+
+        const json = JSON.parse(text.substr(47).slice(0, -2));
+        const rows = json.table.rows;
+        
+        const today = new Date();
+        const todayDay = today.getDate();
+        const todayMonth = today.getMonth() + 1; // 1-based
+
+        // Reliable day/month extractor - handles both Google's raw
+        // "Date(YYYY,M,D)" format and plain text dates like "19/2/2016"
+        function getDayMonth(cell) {
+            if (!cell) return null;
+
+            // Prefer raw value (v) - Google encodes dates unambiguously here
+            const raw = cell.v;
+            if (typeof raw === 'string') {
+                const m = raw.match(/^Date\((\d+),(\d+),(\d+)/);
+                if (m) {
+                    return { day: parseInt(m[3], 10), month: parseInt(m[2], 10) + 1 };
+                }
+            }
+
+            // Fallback: parse the formatted text (f) as D/M/Y or D-M-Y
+            const str = (cell.f || String(raw || '')).trim();
+            const parts = str.split(/[\/\-]/).map(p => parseInt(p, 10));
+            if (parts.length >= 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+                return { day: parts[0], month: parts[1] };
+            }
+            return null;
+        }
+
+        container.innerHTML = ""; 
+        let found = false;
+
+        rows.forEach(row => {
+            if (!row || !row.c) return; 
+
+            const name = row.c[0] ? row.c[0].v : "";       
+            const className = row.c[1] ? row.c[1].v : "";  
+            const dobCell = row.c[2];
+
+            const parsed = getDayMonth(dobCell);
+            const isBirthday = parsed && parsed.day === todayDay && parsed.month === todayMonth;
+
+            if (isBirthday) {
+                found = true;
+                container.innerHTML += `
+                    <div class="col-md-6 col-lg-6 mb-4">
+                        <div class="bday-card w-100">
+                            <span style="font-size: 2.5rem; margin-bottom: 15px; display:block;">🎂</span>
+                            <h4 class="fw-bold mb-2" style="color:var(--navy)">${name}</h4>
+                            <p class="text-warning fw-bold fs-5 mb-3">${className}</p>
+                            <hr class="w-25 mx-auto my-3 border-secondary opacity-25">
+                            <p class="mb-0 text-navy font-serif fst-italic small">"Happy Birthday from the BDJM Family ❤️"</p>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+
+        if (!found) {
+            container.innerHTML = `<div class="col-12"><p class="text-light fs-5 italic opacity-75">Wishing all our students a productive day of learning!</p></div>`;
+        }
+
+    } catch (error) { 
+        console.error("Fetch Error:", error);
+        container.innerHTML = `<div class="col-12"><p class="text-danger fs-5">Unable to connect to the database right now.</p></div>`;
+    }
+}
         
         document.addEventListener('DOMContentLoaded', checkBirthdays);
     </script>
